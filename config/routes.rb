@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :members do
     get "search", on: :collection
+    resources :entries, only: [:index]
   end
 
   resource :session, only: [:create, :destroy]
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   resource :password, only: [:show, :edit, :update]
 
   resources :articles
+  resources :entries
 end
